@@ -25,7 +25,7 @@ const puppeteer = require('puppeteer');
   
   do{
 
-  await page.$eval('.chatmsg ', el => el.value = 'ciao, vorresti un sito di chat random nel quale puoi scegliere di essere abbinato a chi vuoi? Ecco a te randoot.com');
+  await page.$eval('.chatmsg ', el => el.value = 'hello, a random chat site where you can choose to be matched with whoever you want? Here s to you randoot.com');
   await page.keyboard.press('Enter');
   await page.waitForTimeout(2000);  
   await page.click('.disconnectbtn');
