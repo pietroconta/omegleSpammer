@@ -1,7 +1,8 @@
 const puppeteer = require('puppeteer');
 (async () => {
   //const browser = await puppeteer.launch({headless:false});
-  const browser = await puppeteer.launch({headless:false
+ const browser = await puppeteer.launch({
+  executablePath: '/usr/bin/chromium-browser'
 })
   const page = await browser.newPage();
   await page.waitForTimeout(1000);     //callibrate as per your need
