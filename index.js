@@ -1,9 +1,15 @@
-const puppeteer = require('puppeteer');
-(async () => {
-  //const browser = await puppeteer.launch({headless:false});
- const browser = await puppeteer.launch({
-  executablePath: '/usr/bin/chromium-browser'
-})
+puppeteer = require('puppeteer-core');
+// console.log('TRYING TO FETCH BROWSER')
+const browserFetcher = puppeteer.createBrowserFetcher();
+let revisionInfo = await browserFetcher.download('884014');
+
+
+browser = await puppeteer.launch(
+  {
+    executablePath: revisionInfo.executablePath,
+    args: ['--no-sandbox', "--disabled-setupid-sandbox"]
+  }
+)
   const page = await browser.newPage();
   await page.waitForTimeout(1000);     //callibrate as per your need
   await page.goto('https://www.omegle.com');
